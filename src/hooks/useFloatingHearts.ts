@@ -10,12 +10,12 @@ interface Particle {
   rotation: number;
   rotationSpeed: number;
   opacity: number;
-  type: 'heart' | 'petal' | 'sparkle';
+  type: 'heart' | 'petal' | 'sparkle' | 'butterfly' | 'flower';
 }
 
 interface UseFloatingHeartsProps {
   count?: number;
-  types?: ('heart' | 'petal' | 'sparkle')[];
+  types?: ('heart' | 'petal' | 'sparkle' | 'butterfly' | 'flower')[];
 }
 
 export const useFloatingHearts = ({ 

@@ -3,13 +3,13 @@ import { useFloatingHearts } from '@/hooks/useFloatingHearts';
 
 interface FloatingParticlesProps {
   count?: number;
-  types?: ('heart' | 'petal' | 'sparkle')[];
+  types?: ('heart' | 'petal' | 'sparkle' | 'butterfly' | 'flower')[];
 }
 
 const FloatingParticles = ({ count = 25, types = ['heart', 'petal'] }: FloatingParticlesProps) => {
   const particles = useFloatingHearts({ count, types });
 
-  const renderParticle = (type: 'heart' | 'petal' | 'sparkle') => {
+  const renderParticle = (type: 'heart' | 'petal' | 'sparkle' | 'butterfly' | 'flower') => {
     switch (type) {
       case 'heart':
         return (
@@ -28,6 +28,14 @@ const FloatingParticles = ({ count = 25, types = ['heart', 'petal'] }: FloatingP
           <svg viewBox="0 0 24 24" fill="currentColor" className="text-sparkle">
             <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9" />
           </svg>
+        );
+      case 'butterfly':
+        return (
+          <span className="text-xl">🦋</span>
+        );
+      case 'flower':
+        return (
+          <span className="text-xl">🌸</span>
         );
     }
   };
