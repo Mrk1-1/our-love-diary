@@ -24,7 +24,7 @@ export interface Song {
 
 export const valentineConfig = {
   landingPage: {
-    greeting: "Hi my love 💕",
+    greeting: "Hi my Vaishnavi 💕",
     subtitle: "This little world is just for you.",
     ctaText: "Enter Our World →"
   },
