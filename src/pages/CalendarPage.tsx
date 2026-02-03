@@ -19,7 +19,7 @@ const CalendarPage = () => {
 
   return (
     <div className="min-h-screen gradient-sunset py-8 px-4 relative overflow-hidden">
-      <FloatingParticles count={20} types={['heart', 'sparkle']} />
+      <FloatingParticles count={20} types={['butterfly', 'flower', 'sparkle']} />
 
       {/* Header */}
       <motion.div
@@ -147,9 +147,20 @@ const CalendarPage = () => {
         })}
       </div>
 
+      {/* Poems Link */}
+      <motion.button
+        className="mt-6 mx-auto block bg-card/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-card text-foreground hover:bg-card font-ui transition-all hover:scale-105"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        onClick={() => navigate('/poems')}
+      >
+        📖 Read Poems Written For You
+      </motion.button>
+
       {/* Back button */}
       <motion.button
-        className="mt-8 mx-auto block text-muted-foreground hover:text-foreground font-ui transition-colors"
+        className="mt-4 mx-auto block text-muted-foreground hover:text-foreground font-ui transition-colors"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
@@ -164,7 +175,7 @@ const CalendarPage = () => {
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        💕
+        🦋
       </motion.div>
     </div>
   );

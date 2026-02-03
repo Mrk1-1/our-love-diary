@@ -8,7 +8,9 @@ import CalendarPage from "./pages/CalendarPage";
 import RoseDayPage from "./pages/RoseDayPage";
 import DayPage from "./pages/DayPage";
 import ProposalPage from "./pages/ProposalPage";
+import PoemsPage from "./pages/PoemsPage";
 import NotFound from "./pages/NotFound";
+import MusicPlayer from "./components/MusicPlayer";
 
 const queryClient = new QueryClient();
 
@@ -18,9 +20,11 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <MusicPlayer />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/poems" element={<PoemsPage />} />
           <Route path="/day/1" element={<RoseDayPage />} />
           <Route path="/day/8" element={<ProposalPage />} />
           <Route path="/day/:dayNumber" element={<DayPage />} />

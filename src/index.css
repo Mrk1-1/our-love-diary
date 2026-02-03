@@ -6,141 +6,157 @@
 
 @layer base {
   :root {
-    /* Romantic Color Palette - Based on gradient reference */
-    --background: 340 100% 97%;
-    --foreground: 340 80% 20%;
+    /* Soft White & Light Pink Palette - Inspired by reference */
+    --background: 0 0% 100%;
+    --foreground: 340 50% 25%;
     
-    --card: 340 100% 98%;
-    --card-foreground: 340 80% 20%;
+    --card: 340 50% 98%;
+    --card-foreground: 340 50% 25%;
     
-    --popover: 340 100% 98%;
-    --popover-foreground: 340 80% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 50% 25%;
     
-    /* Primary: Blush Pink */
-    --primary: 340 100% 80%;
-    --primary-foreground: 340 80% 20%;
+    /* Primary: Soft Pink */
+    --primary: 340 80% 85%;
+    --primary-foreground: 340 60% 25%;
     
-    /* Secondary: Coral/Salmon */
-    --secondary: 10 100% 70%;
-    --secondary-foreground: 10 100% 98%;
+    /* Secondary: Light Lavender */
+    --secondary: 270 60% 90%;
+    --secondary-foreground: 270 50% 30%;
     
-    /* Muted: Soft Lavender */
-    --muted: 280 50% 90%;
-    --muted-foreground: 280 30% 40%;
+    /* Muted: Very Soft Pink/Cream */
+    --muted: 340 30% 95%;
+    --muted-foreground: 340 20% 45%;
     
-    /* Accent: Deep Rose */
-    --accent: 340 80% 60%;
-    --accent-foreground: 340 100% 98%;
+    /* Accent: Coral Pink */
+    --accent: 340 70% 75%;
+    --accent-foreground: 0 0% 100%;
     
-    /* Highlight: Hot Pink */
-    --highlight: 340 100% 65%;
+    /* Highlight: Bright Pink */
+    --highlight: 340 90% 70%;
     --highlight-foreground: 0 0% 100%;
     
-    /* Romantic Purple */
-    --romantic: 280 60% 45%;
-    --romantic-foreground: 280 100% 98%;
+    /* Romantic Purple/Lavender */
+    --romantic: 280 50% 75%;
+    --romantic-foreground: 0 0% 100%;
     
-    /* Deep Purple */
-    --deep: 260 80% 25%;
-    --deep-foreground: 260 100% 95%;
+    /* Deep: Soft Purple */
+    --deep: 280 40% 55%;
+    --deep-foreground: 0 0% 100%;
     
-    /* Gold Sparkle */
-    --sparkle: 45 100% 50%;
-    --sparkle-foreground: 45 100% 10%;
+    /* Sparkle: Soft Gold */
+    --sparkle: 45 90% 65%;
+    --sparkle-foreground: 45 100% 15%;
     
-    --destructive: 0 84% 60%;
+    /* Butterfly: Light Blue */
+    --butterfly: 200 70% 75%;
+    --butterfly-foreground: 200 80% 20%;
+    
+    /* Flower: Pastel Yellow */
+    --flower: 50 80% 85%;
+    --flower-foreground: 50 80% 25%;
+    
+    --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 340 60% 85%;
-    --input: 340 60% 90%;
-    --ring: 340 100% 70%;
+    --border: 340 40% 90%;
+    --input: 340 30% 95%;
+    --ring: 340 70% 80%;
     
     --radius: 1rem;
     
-    /* Gradient tokens */
-    --gradient-romantic: linear-gradient(180deg, hsl(340 100% 88%) 0%, hsl(10 100% 70%) 100%);
-    --gradient-sunset: linear-gradient(180deg, hsl(340 100% 88%) 0%, hsl(10 100% 70%) 50%, hsl(280 60% 45%) 100%);
-    --gradient-night: linear-gradient(180deg, hsl(280 60% 45%) 0%, hsl(260 80% 25%) 100%);
-    --gradient-rose: linear-gradient(180deg, hsl(340 100% 92%) 0%, hsl(340 100% 80%) 100%);
+    /* Gradient tokens - lighter, more pastel */
+    --gradient-romantic: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(340 80% 95%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(340 60% 95%) 0%, hsl(280 50% 90%) 50%, hsl(200 60% 90%) 100%);
+    --gradient-night: linear-gradient(180deg, hsl(280 40% 90%) 0%, hsl(260 50% 85%) 100%);
+    --gradient-rose: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(340 80% 92%) 100%);
+    --gradient-butterfly: linear-gradient(135deg, hsl(340 70% 92%) 0%, hsl(280 50% 90%) 50%, hsl(200 60% 92%) 100%);
     
     /* Animation tokens */
     --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-gentle: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-quick: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(340 100% 70% / 0.4);
-    --shadow-romantic: 0 10px 30px -10px hsl(340 100% 60% / 0.3);
-    --shadow-card: 0 4px 20px hsl(340 60% 50% / 0.15);
+    /* Shadows - softer */
+    --shadow-glow: 0 0 30px hsl(340 80% 80% / 0.3);
+    --shadow-romantic: 0 8px 25px -8px hsl(340 70% 70% / 0.25);
+    --shadow-card: 0 4px 15px hsl(340 50% 60% / 0.1);
     
-    --sidebar-background: 340 100% 97%;
-    --sidebar-foreground: 340 80% 20%;
-    --sidebar-primary: 340 100% 80%;
-    --sidebar-primary-foreground: 340 80% 20%;
-    --sidebar-accent: 280 50% 90%;
-    --sidebar-accent-foreground: 280 30% 40%;
-    --sidebar-border: 340 60% 85%;
-    --sidebar-ring: 340 100% 70%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 340 50% 25%;
+    --sidebar-primary: 340 80% 85%;
+    --sidebar-primary-foreground: 340 60% 25%;
+    --sidebar-accent: 340 30% 95%;
+    --sidebar-accent-foreground: 340 20% 45%;
+    --sidebar-border: 340 40% 90%;
+    --sidebar-ring: 340 70% 80%;
   }
 
   .dark {
-    --background: 260 80% 8%;
-    --foreground: 340 100% 95%;
+    --background: 280 30% 10%;
+    --foreground: 340 80% 95%;
     
-    --card: 260 60% 12%;
-    --card-foreground: 340 100% 95%;
+    --card: 280 25% 14%;
+    --card-foreground: 340 80% 95%;
     
-    --popover: 260 60% 12%;
-    --popover-foreground: 340 100% 95%;
+    --popover: 280 25% 14%;
+    --popover-foreground: 340 80% 95%;
     
-    --primary: 340 100% 75%;
-    --primary-foreground: 260 80% 10%;
+    --primary: 340 70% 75%;
+    --primary-foreground: 280 30% 10%;
     
-    --secondary: 10 80% 60%;
-    --secondary-foreground: 10 100% 98%;
+    --secondary: 270 40% 50%;
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 260 40% 20%;
-    --muted-foreground: 280 30% 70%;
+    --muted: 280 20% 18%;
+    --muted-foreground: 340 30% 70%;
     
-    --accent: 340 80% 55%;
-    --accent-foreground: 340 100% 98%;
+    --accent: 340 60% 60%;
+    --accent-foreground: 0 0% 100%;
     
-    --highlight: 340 100% 60%;
+    --highlight: 340 80% 65%;
     --highlight-foreground: 0 0% 100%;
     
-    --romantic: 280 60% 50%;
-    --romantic-foreground: 280 100% 98%;
+    --romantic: 280 50% 55%;
+    --romantic-foreground: 0 0% 100%;
     
-    --deep: 260 80% 15%;
-    --deep-foreground: 260 100% 95%;
+    --deep: 280 40% 35%;
+    --deep-foreground: 280 60% 95%;
     
-    --sparkle: 45 100% 55%;
+    --sparkle: 45 85% 60%;
     --sparkle-foreground: 45 100% 10%;
     
-    --destructive: 0 70% 50%;
+    --butterfly: 200 60% 55%;
+    --butterfly-foreground: 200 80% 95%;
+    
+    --flower: 50 70% 70%;
+    --flower-foreground: 50 80% 15%;
+    
+    --destructive: 0 60% 50%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 260 40% 25%;
-    --input: 260 40% 20%;
-    --ring: 340 100% 65%;
+    --border: 280 25% 22%;
+    --input: 280 20% 18%;
+    --ring: 340 70% 65%;
     
-    --gradient-romantic: linear-gradient(180deg, hsl(340 80% 40%) 0%, hsl(280 60% 30%) 100%);
-    --gradient-sunset: linear-gradient(180deg, hsl(340 80% 35%) 0%, hsl(280 60% 25%) 50%, hsl(260 80% 15%) 100%);
-    --gradient-night: linear-gradient(180deg, hsl(260 80% 20%) 0%, hsl(260 90% 8%) 100%);
-    --gradient-rose: linear-gradient(180deg, hsl(340 60% 25%) 0%, hsl(340 80% 35%) 100%);
+    --gradient-romantic: linear-gradient(180deg, hsl(340 50% 25%) 0%, hsl(280 40% 20%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(340 50% 25%) 0%, hsl(280 40% 20%) 50%, hsl(200 40% 20%) 100%);
+    --gradient-night: linear-gradient(180deg, hsl(280 40% 18%) 0%, hsl(280 50% 10%) 100%);
+    --gradient-rose: linear-gradient(180deg, hsl(340 40% 20%) 0%, hsl(340 50% 28%) 100%);
+    --gradient-butterfly: linear-gradient(135deg, hsl(340 50% 22%) 0%, hsl(280 40% 18%) 50%, hsl(200 40% 22%) 100%);
     
-    --shadow-glow: 0 0 60px hsl(340 100% 60% / 0.3);
-    --shadow-romantic: 0 10px 30px -10px hsl(340 100% 50% / 0.2);
-    --shadow-card: 0 4px 20px hsl(260 80% 5% / 0.5);
+    --shadow-glow: 0 0 50px hsl(340 80% 60% / 0.25);
+    --shadow-romantic: 0 8px 25px -8px hsl(340 70% 50% / 0.2);
+    --shadow-card: 0 4px 15px hsl(280 50% 5% / 0.4);
     
-    --sidebar-background: 260 80% 8%;
-    --sidebar-foreground: 340 100% 95%;
-    --sidebar-primary: 340 100% 75%;
-    --sidebar-primary-foreground: 260 80% 10%;
-    --sidebar-accent: 260 40% 20%;
-    --sidebar-accent-foreground: 280 30% 70%;
-    --sidebar-border: 260 40% 25%;
-    --sidebar-ring: 340 100% 65%;
+    --sidebar-background: 280 30% 10%;
+    --sidebar-foreground: 340 80% 95%;
+    --sidebar-primary: 340 70% 75%;
+    --sidebar-primary-foreground: 280 30% 10%;
+    --sidebar-accent: 280 20% 18%;
+    --sidebar-accent-foreground: 340 30% 70%;
+    --sidebar-border: 280 25% 22%;
+    --sidebar-ring: 340 70% 65%;
   }
 }
 

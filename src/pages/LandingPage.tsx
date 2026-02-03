@@ -16,7 +16,7 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen gradient-romantic flex items-center justify-center relative overflow-hidden">
-      <FloatingParticles count={30} types={['heart', 'petal', 'sparkle']} />
+      <FloatingParticles count={30} types={['butterfly', 'flower', 'sparkle']} />
       
       {/* Ambient glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -112,7 +112,7 @@ const LandingPage = () => {
           animate={showContent ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          {['🌹', '💝', '✨'].map((emoji, i) => (
+          {['🦋', '🌸', '✨'].map((emoji, i) => (
             <motion.span
               key={i}
               animate={{ y: [0, -10, 0] }}
