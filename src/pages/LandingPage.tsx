@@ -10,20 +10,47 @@ const LandingPage = () => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowContent(true), 500);
+    const timer = setTimeout(() => setShowContent(true), 300);
     return () => clearTimeout(timer);
   }, []);
 
+  const floatingEmojis = ['🦋', '🌸', '💕', '✨', '🌺', '💗', '🌷'];
+
   return (
     <div className="min-h-screen gradient-romantic flex items-center justify-center relative overflow-hidden">
-      <FloatingParticles count={30} types={['butterfly', 'flower', 'sparkle']} />
+      <FloatingParticles count={25} types={['butterfly', 'flower', 'sparkle', 'heart']} />
       
+      {/* Decorative floating emojis around the edges */}
+      {floatingEmojis.map((emoji, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-2xl md:text-3xl pointer-events-none"
+          style={{
+            left: `${10 + (i * 12)}%`,
+            top: `${15 + (i % 3) * 25}%`,
+          }}
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, 10, -10, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 3 + i * 0.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.3,
+          }}
+        >
+          {emoji}
+        </motion.div>
+      ))}
+
       {/* Ambient glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/20 blur-3xl"
+          className="absolute top-1/4 left-1/4 w-48 h-48 md:w-64 md:h-64 rounded-full bg-primary/30 blur-3xl"
           animate={{
-            scale: [1, 1.2, 1],
+            scale: [1, 1.3, 1],
             opacity: [0.3, 0.5, 0.3],
           }}
           transition={{
@@ -33,7 +60,7 @@ const LandingPage = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/20 blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-56 h-56 md:w-80 md:h-80 rounded-full bg-secondary/40 blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.4, 0.6, 0.4],
@@ -44,81 +71,45 @@ const LandingPage = () => {
             ease: "easeInOut",
           }}
         />
-      </div>
-
-      {/* Main content */}
-      <motion.div
-        className="relative z-10 text-center px-6 max-w-lg"
-        initial={{ opacity: 0, y: 30 }}
-        animate={showContent ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        {/* Decorative hearts */}
         <motion.div
-          className="text-6xl mb-6"
-          animate={{ 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 rounded-full bg-accent/20 blur-3xl"
+          animate={{
             scale: [1, 1.1, 1],
-            rotate: [0, 5, -5, 0],
+            opacity: [0.2, 0.4, 0.2],
           }}
           transition={{
-            duration: 2,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-        >
-          💕
-        </motion.div>
+        />
+      </div>
 
-        {/* Greeting */}
-        <motion.h1
-          className="font-handwritten text-5xl md:text-6xl text-foreground mb-4 leading-tight"
-          initial={{ opacity: 0, y: 20 }}
-          animate={showContent ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          {valentineConfig.landingPage.greeting}
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          className="text-xl md:text-2xl text-muted-foreground font-ui mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={showContent ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          {valentineConfig.landingPage.subtitle}
-        </motion.p>
-
-        {/* CTA Button */}
+      {/* Main content card */}
+      <motion.div
+        className="relative z-10 text-center px-6 py-10 max-w-md mx-4"
+        initial={{ opacity: 0, y: 40, scale: 0.9 }}
+        animate={showContent ? { opacity: 1, y: 0, scale: 1 } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        {/* Top decoration */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={showContent ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <Button
-            onClick={() => navigate('/calendar')}
-            size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground font-ui text-lg px-8 py-6 rounded-full shadow-romantic transition-all duration-300 hover:scale-105 animate-gentle-pulse"
-          >
-            <span className="mr-2">✨</span>
-            {valentineConfig.landingPage.ctaText}
-          </Button>
-        </motion.div>
-
-        {/* Bottom decoration */}
-        <motion.div
-          className="mt-16 flex justify-center gap-4 text-3xl"
+          className="flex justify-center gap-2 mb-4"
           initial={{ opacity: 0 }}
           animate={showContent ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ delay: 0.2 }}
         >
-          {['🦋', '🌸', '✨'].map((emoji, i) => (
+          {['🌸', '💕', '🌸'].map((emoji, i) => (
             <motion.span
               key={i}
-              animate={{ y: [0, -10, 0] }}
+              className="text-3xl"
+              animate={{ 
+                y: [0, -8, 0],
+                rotate: i === 1 ? [0, 10, -10, 0] : 0,
+              }}
               transition={{
                 duration: 2,
-                delay: i * 0.3,
+                delay: i * 0.2,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
@@ -127,6 +118,108 @@ const LandingPage = () => {
             </motion.span>
           ))}
         </motion.div>
+
+        {/* Cute envelope/heart decoration */}
+        <motion.div
+          className="text-6xl md:text-7xl mb-6"
+          animate={{ 
+            scale: [1, 1.1, 1],
+            rotate: [0, 3, -3, 0],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          💌
+        </motion.div>
+
+        {/* Greeting */}
+        <motion.h1
+          className="font-handwritten text-4xl md:text-5xl lg:text-6xl text-foreground mb-3 leading-tight"
+          initial={{ opacity: 0, y: 20 }}
+          animate={showContent ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          {valentineConfig.landingPage.greeting}
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          className="text-lg md:text-xl text-muted-foreground font-ui mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={showContent ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          {valentineConfig.landingPage.subtitle}
+        </motion.p>
+
+        {/* Decorative divider */}
+        <motion.div
+          className="flex items-center justify-center gap-3 mb-8"
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={showContent ? { opacity: 1, scaleX: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <div className="h-px w-12 bg-primary/40" />
+          <span className="text-xl">🦋</span>
+          <div className="h-px w-12 bg-primary/40" />
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={showContent ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="space-y-4"
+        >
+          <Button
+            onClick={() => navigate('/calendar')}
+            size="lg"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground font-ui text-lg px-8 py-6 rounded-full shadow-romantic transition-all duration-300 hover:scale-105 animate-gentle-pulse"
+          >
+            <span className="mr-2">✨</span>
+            {valentineConfig.landingPage.ctaText}
+            <span className="ml-2">✨</span>
+          </Button>
+        </motion.div>
+
+        {/* Bottom decoration */}
+        <motion.div
+          className="mt-10 flex justify-center gap-4 text-2xl md:text-3xl"
+          initial={{ opacity: 0 }}
+          animate={showContent ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.9 }}
+        >
+          {['🌷', '🦋', '💗', '🦋', '🌷'].map((emoji, i) => (
+            <motion.span
+              key={i}
+              animate={{ 
+                y: [0, -8, 0],
+                rotate: emoji === '🦋' ? [0, 15, -15, 0] : 0,
+              }}
+              transition={{
+                duration: 2.5,
+                delay: i * 0.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              {emoji}
+            </motion.span>
+          ))}
+        </motion.div>
+
+        {/* Cute message at bottom */}
+        <motion.p
+          className="mt-6 text-sm text-muted-foreground/70 font-ui italic"
+          initial={{ opacity: 0 }}
+          animate={showContent ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 1.1 }}
+        >
+          Made with 💕 just for you
+        </motion.p>
       </motion.div>
     </div>
   );
