@@ -253,4 +253,4 @@ export const getDayNumber = (dateStr: string): number => {
 };
 
 // For testing - set to true to unlock all days
-export const DEV_MODE = true;
+export const DEV_MODE = false;
