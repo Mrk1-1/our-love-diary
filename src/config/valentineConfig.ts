@@ -51,6 +51,14 @@ export const valentineConfig = {
     },
     {
       date: "2026-02-08",
+      name: "Proposal day",
+      emoji: "💖",
+      message: "Like the tree needs the earth,\nLike the night needs the moon,\nLike the star needs the sky,\nLike the guitar needs the tune,\nMy world needs You...",
+      theme: "proposal" as const,
+      gradient: "from-indigo-400 via-purple-500 to-pink-500"
+    },
+    {
+      date: "2026-02-09",
       name: "Chocolate Day",
       emoji: "🍫",
       message: "Life is sweet…\nbut somehow you make it sweeter 🍫💖",
@@ -58,7 +66,7 @@ export const valentineConfig = {
       gradient: "from-amber-100 via-rose-200 to-pink-300"
     },
     {
-      date: "2026-02-09",
+      date: "2026-02-10",
       name: "Teddy Day",
       emoji: "🧸",
       message: "This bear will hug you when I can't,\nbut nothing hugs like I do 🧸💕",
@@ -66,7 +74,7 @@ export const valentineConfig = {
       gradient: "from-orange-100 via-amber-200 to-rose-200"
     },
     {
-      date: "2026-02-10",
+      date: "2026-02-11",
       name: "Promise Day",
       emoji: "💫",
       message: "I promise to choose you,\nevery single day,\neven on the hard ones 💫",
@@ -74,7 +82,7 @@ export const valentineConfig = {
       gradient: "from-violet-200 via-purple-300 to-indigo-400"
     },
     {
-      date: "2026-02-11",
+      date: "2026-02-12",
       name: "Hug Day",
       emoji: "🤗",
       message: "If I could, I'd pause the world\nand stay here hugging you forever 🤗",
@@ -82,7 +90,7 @@ export const valentineConfig = {
       gradient: "from-purple-200 via-pink-300 to-rose-300"
     },
     {
-      date: "2026-02-12",
+      date: "2026-02-13",
       name: "Kiss Day",
       emoji: "😘",
       message: "This kiss carries everything\nI'm too shy to say out loud 😘",
@@ -90,20 +98,12 @@ export const valentineConfig = {
       gradient: "from-pink-300 via-rose-400 to-red-400"
     },
     {
-      date: "2026-02-13",
+      date: "2026-02-14",
       name: "Valentine's Day",
       emoji: "💝",
-      message: "Today and every day,\nyou are my favorite person in the world 💝",
+      message: "I love you more than yesterday but less than tomorrow..  Final message : I’m in love with you, and you’ve been on my mind constantly. I want to meet you, tell you everything honestly, and clear my heart. Whatever your answer is, my love will still remain—unchanged and true.",
       theme: "valentine" as const,
       gradient: "from-rose-300 via-pink-400 to-purple-500"
-    },
-    {
-      date: "2026-02-14",
-      name: "Date Proposal",
-      emoji: "💖",
-      message: "Will you go on a date with me? 💖",
-      theme: "proposal" as const,
-      gradient: "from-indigo-400 via-purple-500 to-pink-500"
     }
   ] as DayContent[],
 
