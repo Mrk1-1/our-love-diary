@@ -31,6 +31,30 @@ const MusicPlayer = () => {
       if (audioRef.current) audioRef.current.muted = true;
     }
 
+    // Auto-play the music
+    const playMusic = () => {
+      if (audioRef.current) {
+        audioRef.current.play()
+          .then(() => setIsPlaying(true))
+          .catch(() => {
+            // Browser blocked autoplay, wait for user interaction
+            const handleInteraction = () => {
+              if (audioRef.current && !isPlaying) {
+                audioRef.current.play()
+                  .then(() => setIsPlaying(true))
+                  .catch(console.error);
+              }
+              document.removeEventListener('click', handleInteraction);
+              document.removeEventListener('touchstart', handleInteraction);
+            };
+            document.addEventListener('click', handleInteraction);
+            document.addEventListener('touchstart', handleInteraction);
+          });
+      }
+    };
+    
+    playMusic();
+
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
