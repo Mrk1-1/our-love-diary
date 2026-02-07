@@ -8,6 +8,10 @@ import { Button } from '@/components/ui/button';
 const LandingPage = () => {
   const navigate = useNavigate();
   const [showContent, setShowContent] = useState(false);
+  const [subtitle] = useState(() => {
+    const subtitles = valentineConfig.landingPage.subtitles;
+    return subtitles[Math.floor(Math.random() * subtitles.length)];
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => setShowContent(true), 300);
@@ -152,7 +156,7 @@ const LandingPage = () => {
           animate={showContent ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          {valentineConfig.landingPage.subtitle}
+          {subtitle}
         </motion.p>
 
         {/* Decorative divider */}
