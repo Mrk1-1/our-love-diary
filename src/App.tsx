@@ -9,6 +9,7 @@ import RoseDayPage from "./pages/RoseDayPage";
 import DayPage from "./pages/DayPage";
 import ProposalPage from "./pages/ProposalPage";
 import PoemsPage from "./pages/PoemsPage";
+import LoveGamePage from "./pages/LoveGamePage";
 import NotFound from "./pages/NotFound";
 import MusicPlayer from "./components/MusicPlayer";
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/day/1" element={<RoseDayPage />} />
           <Route path="/day/8" element={<ProposalPage />} />
           <Route path="/day/:dayNumber" element={<DayPage />} />
+          <Route path="/game" element={<LoveGamePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

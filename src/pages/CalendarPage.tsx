@@ -147,16 +147,26 @@ const CalendarPage = () => {
         })}
       </div>
 
-      {/* Poems Link */}
-      <motion.button
-        className="mt-6 mx-auto block bg-card/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-card text-foreground hover:bg-card font-ui transition-all hover:scale-105"
+      {/* Extra Links */}
+      <motion.div
+        className="mt-6 flex flex-col sm:flex-row gap-3 justify-center items-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        onClick={() => navigate('/poems')}
       >
-        📖 Read Poems Written For You
-      </motion.button>
+        <button
+          className="bg-card/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-card text-foreground hover:bg-card font-ui transition-all hover:scale-105"
+          onClick={() => navigate('/poems')}
+        >
+          📖 Read Poems For You
+        </button>
+        <button
+          className="bg-accent/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-card text-accent-foreground hover:bg-accent font-ui transition-all hover:scale-105"
+          onClick={() => navigate('/game')}
+        >
+          🎮 Play Love Game
+        </button>
+      </motion.div>
 
       {/* Back button */}
       <motion.button
