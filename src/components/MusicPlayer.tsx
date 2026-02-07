@@ -97,6 +97,17 @@ const MusicPlayer = () => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1, duration: 0.5 }}
     >
+      {/* Volume hint tooltip */}
+      {!isExpanded && (
+        <motion.div
+          className="absolute -top-8 right-0 bg-card/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-sm border border-border whitespace-nowrap"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.5 }}
+        >
+          <p className="text-xs text-muted-foreground">🎵 Tap to adjust volume</p>
+        </motion.div>
+      )}
       <AnimatePresence>
         {isExpanded && (
           <motion.div
