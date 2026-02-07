@@ -24,8 +24,19 @@ export interface Song {
 
 export const valentineConfig = {
   landingPage: {
-    greeting: "Hi my Vaishnavi 💕",
-    subtitle: "This little world is just for you.",
+    greeting: "Hi Vaishnavi 💕",
+    subtitles: [
+      "This little world is just for you.",
+      "I made this with all my love 💗",
+      "Every pixel here whispers your name ✨",
+      "You make my heart skip a beat 💓",
+      "Welcome to our little corner of the universe 🌸",
+      "I've been waiting to show you this 🦋",
+      "This is where my love for you lives 💕",
+      "You're the reason I smile every day 😊",
+      "Something special awaits you inside 💝",
+      "My heart made this for yours 💖"
+    ],
     ctaText: "Enter Our World →"
   },
 
