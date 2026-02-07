@@ -41,8 +41,8 @@ const LoveGamePage = () => {
         id: heartIdRef.current++,
         x: Math.random() * 80 + 10, // 10-90% of width
         emoji: isSpecial ? EMOJIS[Math.floor(Math.random() * EMOJIS.length)] : '❤️',
-        speed: 2 + Math.random() * 3,
-        size: isSpecial ? 40 : 30,
+        speed: 1.2 + Math.random() * 1.6,
+        size: isSpecial ? 56 : 44,
         points: isSpecial ? 5 : 1,
       };
       setHearts(prev => [...prev, newHeart]);

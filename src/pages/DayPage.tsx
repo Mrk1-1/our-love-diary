@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FloatingParticles from '@/components/FloatingParticles';
-import { valentineConfig } from '@/config/valentineConfig';
+import { valentineConfig, isDateUnlocked, DEV_MODE } from '@/config/valentineConfig';
 import { Button } from '@/components/ui/button';
 import TypewriterText from '@/components/TypewriterText';
 import DollCharacter from '@/components/DollCharacter';
@@ -14,15 +14,24 @@ const DayPage = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [interacted, setInteracted] = useState(false);
 
-  // Validate day number
-  if (dayIndex < 0 || dayIndex >= valentineConfig.days.length) {
-    navigate('/calendar');
+  const isValidDay = dayIndex >= 0 && dayIndex < valentineConfig.days.length;
+  const dayContent = isValidDay ? valentineConfig.days[dayIndex] : null;
+  const isUnlocked = Boolean(dayContent) && (DEV_MODE || isDateUnlocked(dayContent.date));
+  const nextDayIndex = dayIndex + 1;
+  const nextDayNumber = nextDayIndex < valentineConfig.days.length ? nextDayIndex + 1 : null;
+  const isNextDayUnlocked = nextDayIndex < valentineConfig.days.length
+    && (DEV_MODE || isDateUnlocked(valentineConfig.days[nextDayIndex].date));
+  const prevDay = dayIndex > 0 ? dayIndex : null;
+
+  useEffect(() => {
+    if (!isValidDay || !isUnlocked) {
+      navigate('/calendar');
+    }
+  }, [isValidDay, isUnlocked, navigate]);
+
+  if (!dayContent || !isUnlocked) {
     return null;
   }
-
-  const dayContent = valentineConfig.days[dayIndex];
-  const nextDay = dayIndex < valentineConfig.days.length - 1 ? dayIndex + 2 : null;
-  const prevDay = dayIndex > 0 ? dayIndex : null;
 
   const handleInteraction = () => {
     if (interacted) return;
@@ -155,12 +164,18 @@ const DayPage = () => {
         >
           Calendar
         </Button>
-        {nextDay && (
+        {nextDayNumber && (
           <Button
-            onClick={() => navigate(`/day/${nextDay}`)}
+            onClick={() => {
+              if (isNextDayUnlocked) {
+                navigate(`/day/${nextDayNumber}`);
+                return;
+              }
+              navigate('/calendar');
+            }}
             className="bg-accent hover:bg-accent/90 text-accent-foreground"
           >
-            Day {nextDay} →
+            Day {nextDayNumber} →
           </Button>
         )}
       </motion.div>

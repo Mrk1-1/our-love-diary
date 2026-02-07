@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import FloatingParticles from '@/components/FloatingParticles';
 import { valentineConfig } from '@/config/valentineConfig';
 import { Button } from '@/components/ui/button';
+import { Instagram } from 'lucide-react';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -187,6 +188,11 @@ const LandingPage = () => {
             {valentineConfig.landingPage.ctaText}
             <span className="ml-2">✨</span>
           </Button>
+
+          <div className="mx-auto flex w-fit items-center gap-2 rounded-full bg-card/80 px-4 py-2 shadow-card backdrop-blur-sm">
+            <Instagram className="h-4 w-4 text-primary" />
+            <span className="font-ui text-sm text-foreground">My Love For youuu</span>
+          </div>
         </motion.div>
 
         {/* Bottom decoration */}
