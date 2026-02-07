@@ -9,8 +9,8 @@ const MusicPlayer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Using a royalty-free lofi track URL
-  const musicUrl = "https://cdn.pixabay.com/audio/2024/11/01/audio_5e3b57c842.mp3";
+  // Custom song for Vaishnavi
+  const musicUrl = "/audio/Vaishnavi-for-you.mp3";
 
   useEffect(() => {
     audioRef.current = new Audio(musicUrl);
@@ -115,7 +115,7 @@ const MusicPlayer = () => {
             </div>
             
             <p className="text-xs text-muted-foreground text-center">
-              Romantic Lofi 💕
+              Our Song 💕
             </p>
           </motion.div>
         )}
